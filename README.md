@@ -12,3 +12,4 @@ It is also possible to make the diff with HEAD:
 ```
 git-latexdiff file.tex previous-commit-hash
 ```
+The program will display the pdf with deleted part in red, strikethrough and added part in blue underlined with waves. For the moment, only bibtex bibliography is accepted (though I'm working on a version for biber).
