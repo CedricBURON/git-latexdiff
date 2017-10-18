@@ -15,7 +15,7 @@ latexpand "$1" --output $TMPDIR/diff2.tex
 latexdiff $TMPDIR/diff1.tex $TMPDIR/diff2.tex > $TMPDIR/diff.tex
 pdflatex -interaction nonstopmode -output-directory $TMPDIR $TMPDIR/diff.tex
 cp *.bib $TMPDIR
-current= $(pwd)
+current=$(pwd)
 cd "$TMPDIR"
 bibtex diff
 cd "$current"
