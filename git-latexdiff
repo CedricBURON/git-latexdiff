@@ -18,7 +18,7 @@ cp *.bib $TMPDIR
 current= $(pwd)
 cd "$TMPDIR"
 bibtex diff
-cd $current
+cd "$current"
 pdflatex -interaction nonstopmode -output-directory $TMPDIR $TMPDIR/diff.tex
 pdflatex -interaction nonstopmode -output-directory $TMPDIR $TMPDIR/diff.tex
 evince $TMPDIR/diff.pdf
