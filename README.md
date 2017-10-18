@@ -1,5 +1,5 @@
 # git-latexdiff
-A tool to see the diff between two commits of a latex file. This file is written for Linux and needs `bash`to be run.
+A tool to see the diff between two commits of a latex file. This file is written for Linux and needs `bash` and evince to be run.
 
 This tool is based on https://gitlab.com/git-latexdiff/git-latexdiff
 
