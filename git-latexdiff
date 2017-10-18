@@ -6,8 +6,7 @@ if [ $# -eq 2 ]
     new=$3
 fi;
 TMPDIR=$(mktemp -d ./git-latexdiff.XXXXXX)
-echo $TMPDIR
-mkdir $TMPDIR
+#mkdir $TMPDIR
 git checkout $2
 latexpand "$1" --output $TMPDIR/diff1.tex
 git checkout $new
@@ -15,6 +14,12 @@ latexpand "$1" --output $TMPDIR/diff2.tex
 #git checkout master
 latexdiff $TMPDIR/diff1.tex $TMPDIR/diff2.tex > $TMPDIR/diff.tex
 pdflatex -interaction nonstopmode -output-directory $TMPDIR $TMPDIR/diff.tex
+cp *.bib $TMPDIR
+current= $(pwd)
+cd "$TMPDIR"
+bibtex diff
+cd $current
+pdflatex -interaction nonstopmode -output-directory $TMPDIR $TMPDIR/diff.tex
+pdflatex -interaction nonstopmode -output-directory $TMPDIR $TMPDIR/diff.tex
 evince $TMPDIR/diff.pdf
 rm -rf $TMPDIR
-
